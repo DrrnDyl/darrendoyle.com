@@ -47,16 +47,7 @@
       height: 110px;
       border-radius: 4px;
       object-fit: cover;
-      background-color: var(--red);
       flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .header__photo svg {
-      opacity: 0.35;
     }
 
     .header__name {
@@ -243,12 +234,7 @@
 
   <!-- Header -->
   <header class="header">
-    <div class="header__photo" aria-label="Darren Doyle photo">
-      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fce9d2" stroke-width="1.2">
-        <circle cx="12" cy="8" r="4"/>
-        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-      </svg>
-    </div>
+    <img class="header__photo" src="darren.jpg" alt="Darren Doyle" />
     <div>
       <h1 class="header__name">Darren Doyle</h1>
       <p class="header__bio">
