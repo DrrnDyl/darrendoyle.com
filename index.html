@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darren Doyle</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --red:    #980302;
+      --cream:  #fce9d2;
+      --yellow: #f2f4b6;
+      --text:   #1a1008;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--text);
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ─── Header ─── */
+
+    .header {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+
+    .header__photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 4px;
+      object-fit: cover;
+      background-color: var(--red);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .header__photo svg {
+      opacity: 0.35;
+    }
+
+    .header__name {
+      font-size: 1.7rem;
+      font-weight: normal;
+      letter-spacing: -0.02em;
+      color: var(--red);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .header__bio {
+      font-size: 0.95rem;
+      color: var(--text);
+      opacity: 0.85;
+    }
+
+    /* ─── Nav ─── */
+
+    nav {
+      border-top: 1.5px solid var(--red);
+      border-bottom: 1.5px solid var(--red);
+      padding: 10px 0;
+      margin-bottom: 48px;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+    }
+
+    nav a {
+      color: var(--red);
+      text-decoration: none;
+      margin-right: 20px;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ─── Sections ─── */
+
+    section {
+      margin-bottom: 52px;
+    }
+
+    section h2 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--red);
+      font-weight: bold;
+      margin-bottom: 18px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--red);
+    }
+
+    /* ─── Publication list ─── */
+
+    .pub-list {
+      list-style: none;
+    }
+
+    .pub-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(152, 3, 2, 0.15);
+      font-size: 0.93rem;
+    }
+
+    .pub-list li:last-child {
+      border-bottom: none;
+    }
+
+    .pub-title {
+      font-style: italic;
+    }
+
+    .pub-meta {
+      font-size: 0.82rem;
+      opacity: 0.65;
+      margin-top: 2px;
+    }
+
+    .pub-award {
+      display: inline-block;
+      background-color: var(--yellow);
+      color: var(--red);
+      font-size: 0.73rem;
+      padding: 1px 7px;
+      border-radius: 2px;
+      margin-top: 4px;
+      font-style: normal;
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── Featured image tiles ─── */
+
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .tile {
+      aspect-ratio: 4/3;
+      background-color: var(--yellow);
+      border: 1px solid rgba(152, 3, 2, 0.2);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      color: var(--red);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    /* ─── Contact ─── */
+
+    .contact-line {
+      font-size: 0.93rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-line a {
+      color: var(--red);
+    }
+
+    .contact-line a:hover {
+      text-decoration: none;
+    }
+
+    /* ─── Footer ─── */
+
+    footer {
+      margin-top: 60px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(152, 3, 2, 0.25);
+      font-size: 0.78rem;
+      opacity: 0.5;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Links ─── */
+
+    a {
+      color: var(--red);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+
+    /* ─── Highlight block ─── */
+
+    .highlight {
+      background-color: var(--yellow);
+      border-left: 3px solid var(--red);
+      padding: 14px 18px;
+      font-size: 0.93rem;
+      margin-bottom: 20px;
+      border-radius: 0 3px 3px 0;
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        flex-direction: column;
+      }
+      .tiles {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header__photo" aria-label="Darren Doyle photo">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fce9d2" stroke-width="1.2">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+      </svg>
+    </div>
+    <div>
+      <h1 class="header__name">Darren Doyle</h1>
+      <p class="header__bio">
+        Writer, editor, and creative practitioner.<br>
+        Working at the intersection of narrative, culture, and form.
+      </p>
+    </div>
+  </header>
+
+  <!-- Nav -->
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#essays">Essays</a>
+    <a href="#press">Press</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      Darren Doyle is a writer and editor based in Ireland. His work has appeared in literary journals, magazines, and anthologies across Ireland, the UK, and internationally. He is interested in the essay form, short fiction, and the ways language shapes how we understand place and memory.
+    </p>
+    <br>
+    <p>
+      He has worked as an editor and collaborator on several independent publishing projects and is available for commissions, editorial work, and writing residencies.
+    </p>
+  </section>
+
+  <!-- Work -->
+  <section id="work">
+    <h2>Fiction</h2>
+    <ul class="pub-list">
+      <li>
+        <span class="pub-title">"The Arrangement of Rooms"</span>
+        <div class="pub-meta">The Stinging Fly, Issue 42 — 05.2024</div>
+      </li>
+      <li>
+        <span class="pub-title">"Low Water"</span>
+        <div class="pub-meta">The Moth Magazine — 02.2024</div>
+        <span class="pub-award">Shortlisted, Moth Short Fiction Prize</span>
+      </li>
+      <li>
+        <span class="pub-title">"Held Breath"</span>
+        <div class="pub-meta">Banshee Literary Journal, Issue 18 — 09.2023</div>
+      </li>
+      <li>
+        <span class="pub-title">"What We Called the Field"</span>
+        <div class="pub-meta">The Dublin Review, No. 91 — 06.2023</div>
+      </li>
+      <li>
+        <span class="pub-title">"Pastoral"</span>
+        <div class="pub-meta">Granta Online — 11.2022</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Essays -->
+  <section id="essays">
+    <h2>Essays &amp; Criticism</h2>
+
+    <div class="highlight">
+      <strong>"On Slowness: Walking and Writing in the West"</strong> — featured in
+      <em>Winter Papers</em>, Vol. 9, ed. Kevin Barry &amp; Olivia Smith. 01.2025.
+    </div>
+
+    <ul class="pub-list">
+      <li>
+        <span class="pub-title">"The Uses of Landscape: John McGahern's Leitrim"</span>
+        <div class="pub-meta">The Dublin Review of Books — 03.2024</div>
+      </li>
+      <li>
+        <span class="pub-title">"A Difficult Patience: On the Short Story"</span>
+        <div class="pub-meta">The Stinging Fly Blog — 10.2023</div>
+      </li>
+      <li>
+        <span class="pub-title">"Grief and the Genre Problem" (review)</span>
+        <div class="pub-meta">Books Ireland, Issue 362 — 05.2023</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Other work -->
+  <section id="other">
+    <h2>Other Work</h2>
+    <div class="tiles">
+      <div class="tile">Editorial</div>
+      <div class="tile">Workshops</div>
+      <div class="tile">Radio</div>
+      <div class="tile">Residencies</div>
+    </div>
+    <p style="font-size:0.9rem; opacity:0.75;">
+      Past collaborations include the Stinging Fly Summer School, Cúirt International Festival of Literature, RTÉ Arena, and the Irish Writers Centre.
+    </p>
+  </section>
+
+  <!-- Press -->
+  <section id="press">
+    <h2>Press</h2>
+    <ul class="pub-list">
+      <li>
+        <span class="pub-title">Irish Times</span> — "Ten debut writers to watch in 2024"
+        <div class="pub-meta">01.2024</div>
+      </li>
+      <li>
+        <span class="pub-title">The Sunday Business Post</span> — Books of the Year mention
+        <div class="pub-meta">12.2023</div>
+      </li>
+      <li>
+        <span class="pub-title">Hot Press</span> — "New Irish Voices in Fiction"
+        <div class="pub-meta">09.2023</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="contact-line">
+      For enquiries: <a href="mailto:hello@darrendoyle.com">hello@darrendoyle.com</a>
+    </p>
+    <p class="contact-line">
+      Literary representation: <a href="#">The Lisa Richards Agency</a>
+    </p>
+    <p class="contact-line" style="margin-top:12px;">
+      <a href="#">Instagram</a> &nbsp;·&nbsp;
+      <a href="#">Twitter / X</a> &nbsp;·&nbsp;
+      <a href="#">Substack</a>
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2026 Darren Doyle &nbsp;·&nbsp; <a href="#" style="color:inherit;">darrendoyle.com</a>
+  </footer>
+
+</body>
+</html>
