@@ -226,6 +226,31 @@
       border-radius: 0 3px 3px 0;
     }
 
+    /* ─── Fade-in from left ─── */
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .header__photo {
+      animation: fadeInLeft 0.7s ease both;
+    }
+
+    .header__name {
+      animation: fadeInLeft 0.7s ease 0.15s both;
+    }
+
+    .header__bio {
+      animation: fadeInLeft 0.7s ease 0.28s both;
+    }
+
     @media (max-width: 480px) {
       .header {
         flex-direction: column;
